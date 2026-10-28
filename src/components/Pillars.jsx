@@ -1,0 +1,4 @@
+import Icon from './Icon';
+export default function Pillars({t}) {
+ return <section className="pillars-section" aria-labelledby="pillars-title"><div className="section-heading"><div><p className="eyebrow"><span className="orange-dash"/>{t.pillarKicker}</p><h2 id="pillars-title">{t.pillarsTitle}</h2></div><p className="section-intro">{t.pillarsIntro}</p></div><div className="pillars-grid">{t.pillars.map((p,i)=><article className="pillar" key={p.title}><div className="pillar-top"><span className="pillar-icon"><Icon name={['book','heart','chat'][i]}/></span><span className="pillar-number" dir="ltr">0{i+1}</span></div><h3>{p.title}</h3><p>{p.body}</p><details><summary>{t.more}<Icon name="diagonal" className="directional"/></summary><p className="placeholder-copy">{p.more}</p></details></article>)}</div></section>;
+}
