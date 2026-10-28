@@ -2,6 +2,7 @@ import sharp from 'sharp';
 import { mkdir, writeFile } from 'node:fs/promises';
 await mkdir('public/fonts',{recursive:true});
 await Promise.all([480,960,1440].map(width=>sharp('assets/jamshid-portrait-original.png').resize({width}).webp({quality:82,effort:6}).toFile(`public/images/jamshid-hero-${width}.webp`)));
+await Promise.all([480,960,1440].map(width=>sharp('assets/jamshid-cutout.png').resize({width}).webp({quality:85,effort:6}).toFile(`public/images/jamshid-cutout-${width}.webp`)));
 const css=await fetch('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap',{headers:{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'}}).then(r=>r.text());
 const url=css.match(/url\((https:[^)]+)\)/)?.[1];
 if(!url)throw new Error('Font URL not found');

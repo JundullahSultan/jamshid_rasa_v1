@@ -27,20 +27,22 @@ The hero portrait was created with the built-in image generation tool using the 
 
 - Source: `assets/jamshid-portrait-original.png`
 - Responsive WebP files: `public/images/jamshid-hero-{480,960,1440}.webp`
+- Transparent hero cutout: `assets/jamshid-cutout.png`, with responsive `public/images/jamshid-cutout-{480,960,1440}.webp` variants. Its built-in imagegen prompt is in `docs/hero-cutout-prompt.md`.
+- `src/components/Hero.css` controls the reference-matched hero composition: orange on the left, oversized portrait across the center, white panel on the right, navigation inside the frame, two compact action cards and outlined social buttons. The composition stays in this physical order in all languages while individual text regions retain native reading direction.
 - Regenerate WebP sizes and download the font: `node scripts/assets.mjs`
 - Self-hosted Noto Sans Arabic variable font: `public/fonts/noto-arabic.woff2`, with the SIL Open Font License alongside it.
 
-The portrait is around 21 KB / 62 KB / 105 KB for its three responsive sizes. No third-party scripts, map iframe, video iframe, remote fonts or thumbnail requests run on initial page load with the sample data.
+The original portrait is around 21 KB / 62 KB / 105 KB for its three responsive sizes; the transparent hero cutout is around 43 KB / 128 KB / 215 KB. No third-party scripts, map iframe, video iframe, remote fonts or thumbnail requests run on initial page load with the sample data.
 
 ## Verification
 
 With the dev server running, `npm run test:browser` uses Playwright and installed Chrome. Set `BROWSER_CHANNEL=msedge` to use Edge. The checks cover all three languages at 360, 390, 430, 768, 1024 and 1440 px, both homepage/contact views, document overflow, broken images, font loading, menu navigation, filters, dialog close, required/invalid phone fields, prototype submission and navigation from contact to consultation. Screenshots and the layout report are written to ignored `test-results/`.
 
-Verified on 2026-10-28: all 36 layouts and interaction checks passed. A local mobile Lighthouse run on the production build scored 96 performance, 100 accessibility, 100 best practices and 100 SEO, with zero layout shift. The contact page also scored 100 accessibility. Scores vary with device, hosting and network conditions. `npm audit` reported zero vulnerabilities.
+Verified on 2026-10-28: all 36 layouts and interaction checks passed. After the hero revision, a local mobile Lighthouse run on the production build scored 94 performance, 100 accessibility, 100 best practices and 100 SEO. The contact page previously scored 100 accessibility. Scores vary with device, hosting and network conditions. `npm audit` reported zero vulnerabilities.
 
 ## Assumptions and remaining content
 
-The contact reference is expressed as an oversized rust heading, line-based form, generous spacing and an orange footer. The hero is mirrored for RTL and adapted to stack on mobile. Cards use clearly marked sample content; no statistics, testimonials or extra credentials were invented. School/foundation details and the personal story remain bracketed placeholders. Featured-media names and biography come from the supplied brief.
+The contact reference is expressed as an oversized rust heading, line-based form, generous spacing and an orange footer. The hero follows the supplied reference's left/center/right composition and stacks on mobile. Its two bottom cards are useful video/consultation links, and the right-hand card uses the supplied site tagline. No statistics, testimonials or extra credentials were invented. School/foundation details and the personal story remain bracketed placeholders. Featured-media names and biography come from the supplied brief.
 
 The map opens an address search, not a verified location pin. The site has no backend and no confirmed booking schedule. Social addresses need verification. Lighthouse scoring depends on deployed conditions; browser layout checks do not constitute a measured Lighthouse score.
 

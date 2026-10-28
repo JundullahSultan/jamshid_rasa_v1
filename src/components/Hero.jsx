@@ -1,12 +1,28 @@
 import Icon from './Icon';
+import { socials } from '../data/contact';
+import './Hero.css';
 export function Portrait({t, className='', priority=false}) {
  return <img className={className} src="/images/jamshid-hero-960.webp" srcSet="/images/jamshid-hero-480.webp 480w, /images/jamshid-hero-960.webp 960w, /images/jamshid-hero-1440.webp 1440w" sizes="(max-width: 700px) 100vw, 48vw" width="1024" height="1280" alt={t.portraitAlt} loading={priority?'eager':'lazy'} fetchPriority={priority?'high':'auto'} decoding="async"/>;
 }
 export default function Hero({t}) {
- return <section className="hero" id="home" aria-labelledby="hero-title">
-  <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
-  <div className="hero-copy"><span className="eyebrow hero-eyebrow"><span className="status-dot"/>{t.hope}</span><p className="hero-name">{t.name}</p><h1 id="hero-title">{t.heroTitle.map(line=><span key={line}>{line}</span>)}</h1><p className="hero-roles">{t.roles}</p><p className="hero-body">{t.heroBody}</p><div className="hero-buttons"><a className="button button-cream" href="#consultation">{t.bookLong}<Icon name="diagonal" className="directional"/></a><a className="hero-video-link" href="#videos"><span className="small-play"><Icon name="play"/></span>{t.watch}</a></div><div className="hero-bottom-note"><Icon name="sun"/><span>{t.heroNote}</span></div></div>
-  <div className="hero-portrait"><Portrait t={t} priority/><span className="portrait-caption">{t.portraitLabel}</span></div>
-  <aside className="hero-aside"><div className="aside-top"><span className="tiny-pill">{t.hello}</span><h2>{t.helloTitle}</h2><p>{t.helloBody}</p><a className="round-link" href="#videos" aria-label={t.watch}><Icon name="diagonal" className="directional"/></a></div><div className="hope-note"><Icon name="sun"/><span className="eyebrow">{t.quoteLabel}</span><p>{t.quote}</p><div className="note-rule"/><span>{t.explore}</span></div></aside>
+ return <section className="reference-hero" id="home" aria-labelledby="hero-title">
+  <div className="reference-orbit reference-orbit-top" aria-hidden="true"/>
+  <div className="reference-orbit reference-orbit-bottom" aria-hidden="true"/>
+  <div className="reference-white-panel" aria-hidden="true"/>
+  <div className="reference-copy" dir={t.dir}>
+   <span className="reference-badge">{t.hope}</span>
+   <h1 id="hero-title" className="reference-title">{t.name.split(' ').map((word,i)=><span key={i}>{word}{' '}</span>)}</h1>
+   <a className="reference-cta" href="#consultation">{t.bookLong}</a>
+  </div>
+  <div className="reference-portrait"><img src="/images/jamshid-cutout-960.webp" srcSet="/images/jamshid-cutout-480.webp 480w, /images/jamshid-cutout-960.webp 960w, /images/jamshid-cutout-1440.webp 1440w" sizes="(max-width: 700px) 100vw, 70vw" width="1122" height="1402" alt={t.portraitAlt} fetchPriority="high" decoding="async"/></div>
+  <div className="reference-mini-cards" dir={t.dir}>
+   <a href="#videos" className="reference-mini-card"><span>{t.nav[1]}<i aria-hidden="true"/></span><strong>{t.watchOne}<Icon name="play"/></strong></a>
+   <a href="#consultation" className="reference-mini-card"><span>{t.nav[2]}<i aria-hidden="true"/></span><strong>{t.book}<Icon name="chat"/></strong></a>
+  </div>
+  <div className="reference-socials" dir="ltr">{[socials[2],socials[0],socials[1]].map((s,i)=><a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={s.name}><Icon name={['instagram','youtube','facebook'][i]}/></a>)}</div>
+  <aside className="reference-aside" dir={t.dir}>
+   <div className="reference-welcome"><span className="reference-small-badge">{t.hello}</span><h2>{t.helloTitle}</h2><p>{t.roles}</p></div>
+   <div className="reference-note"><div className="reference-note-person"><img src="/images/jamshid-hero-480.webp" width="52" height="64" loading="lazy" alt=""/><div><strong>{t.name}</strong><span>{t.hope}</span></div></div><p>{t.tagline}</p></div>
+  </aside>
  </section>;
 }

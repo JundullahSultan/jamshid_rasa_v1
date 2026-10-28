@@ -1,4 +1,7 @@
 const paths = {
+  instagram: <><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></>,
+  youtube: <><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></>,
+  facebook: <path d="M14 22V13h3l.5-4H14V6.5c0-1 .5-1.5 1.5-1.5H18V1h-3c-4 0-5 2.5-5 5v3H7v4h3v9"/>,
   arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
   diagonal: <><path d="M6 18 18 6M6 6h12v12" /></>,
   play: <path d="m9 5 11 7-11 7z" />,

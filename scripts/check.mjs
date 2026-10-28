@@ -1,6 +1,7 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
+const baseUrl=process.env.PREVIEW_URL||'http://127.0.0.1:5173';
 const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'chrome'});
 const page=await browser.newPage();
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -8,12 +9,12 @@ const results=[];
 await mkdir('test-results',{recursive:true});
 try {
  for(const lang of ['ps','prs','en']){
-  await page.goto('http://127.0.0.1:5173/');
+  await page.goto(baseUrl+'/');
   await page.locator('.language-picker select').selectOption(lang);
   for(const width of [360,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
    for(const route of ['#home','#/contact']){
-    await page.goto('http://127.0.0.1:5173/'+route);
+    await page.goto(baseUrl+'/'+route);
     await page.evaluate(()=>document.fonts.ready);
     await page.waitForTimeout(100);
     const layout=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,viewport:innerWidth,images:[...document.images].filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src),font:document.fonts.check('16px "Noto Arabic"')}));
@@ -26,7 +27,7 @@ try {
   }
  }
  await page.setViewportSize({width:390,height:844});
- await page.goto('http://127.0.0.1:5173/#home');
+ await page.goto(baseUrl+'/#home');
  await page.locator('.language-picker select').selectOption('en');
  await page.locator('.menu-toggle').click();
  assert.equal(await page.locator('#mobile-navigation').isVisible(),true);
@@ -57,7 +58,7 @@ try {
  assert.equal(await page.locator('.phone-pending').isVisible(),true);
  await page.locator('.pillar summary').first().click();
  assert.equal(await page.locator('.pillar details').first().getAttribute('open'),'');
- await page.goto('http://127.0.0.1:5173/#/contact');
+ await page.goto(baseUrl+'/#/contact');
  await page.locator('.mobile-booking').click();
  await page.waitForTimeout(150);
  assert.equal(await page.locator('#consultation').count(),1,'Contact to consultation navigation failed');
