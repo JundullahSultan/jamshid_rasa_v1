@@ -20,5 +20,7 @@
 /* Keep reading copy at a comfortable size in both scripts. */
 .hero .hero-body,.section-heading .section-intro,.pillar>p,.consultation-copy>p:not(.eyebrow):not(.care-notice),.about-copy>p:not(.eyebrow):not(.placeholder-copy),.address-block>p,.contact-description{font-size:1rem}
 .mobile-booking:before{display:none}
+.pillar-number{color:#746554}
+.header-book{min-height:48px}
 @media(max-width:700px){.contact-section-heading .button{width:100%}.footer-bottom>a{width:48px;height:48px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}

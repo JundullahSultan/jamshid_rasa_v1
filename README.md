@@ -36,6 +36,8 @@ The portrait is around 21 KB / 62 KB / 105 KB for its three responsive sizes. No
 
 With the dev server running, `npm run test:browser` uses Playwright and installed Chrome. Set `BROWSER_CHANNEL=msedge` to use Edge. The checks cover all three languages at 360, 390, 430, 768, 1024 and 1440 px, both homepage/contact views, document overflow, broken images, font loading, menu navigation, filters, dialog close, required/invalid phone fields, prototype submission and navigation from contact to consultation. Screenshots and the layout report are written to ignored `test-results/`.
 
+Verified on 2026-10-28: all 36 layouts and interaction checks passed. A local mobile Lighthouse run on the production build scored 96 performance, 100 accessibility, 100 best practices and 100 SEO, with zero layout shift. The contact page also scored 100 accessibility. Scores vary with device, hosting and network conditions. `npm audit` reported zero vulnerabilities.
+
 ## Assumptions and remaining content
 
 The contact reference is expressed as an oversized rust heading, line-based form, generous spacing and an orange footer. The hero is mirrored for RTL and adapted to stack on mobile. Cards use clearly marked sample content; no statistics, testimonials or extra credentials were invented. School/foundation details and the personal story remain bracketed placeholders. Featured-media names and biography come from the supplied brief.
