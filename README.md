@@ -61,3 +61,5 @@ The portal seeds 24 fictional registrations (10 waiting, 10 confirmed, 2 failed 
 The portal header includes the shared language selector. It changes interface labels and reading direction immediately, persists with the website’s `rasa-language` preference, and applies to cards, dialogs, forms, and notices. Names, contact details, and user-created series or lesson content keep their original text.
 
 Dropdowns throughout the site use the shared `CustomSelect` component, with cream panels, warm hover states, rust selection accents, keyboard navigation, typeahead, and viewport-aware positioning. A hidden native select preserves form submission, validation, and reset behavior. Run `npm run test:menus` with `PREVIEW_URL` set to the running app to verify menus in all three languages.
+
+# jamshid_rasa_v1
