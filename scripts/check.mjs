@@ -10,7 +10,8 @@ await mkdir('test-results',{recursive:true});
 try {
  for(const lang of ['ps','prs','en']){
   await page.goto(baseUrl+'/');
-  await page.locator('.language-picker select').selectOption(lang);
+  await page.locator('.language-picker [role=combobox]').click();
+  await page.locator(`[role=option][data-value="${lang}"]`).click();
   for(const width of [360,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
    for(const route of ['#home','#/contact']){
@@ -28,7 +29,8 @@ try {
  }
  await page.setViewportSize({width:390,height:844});
  await page.goto(baseUrl+'/#home');
- await page.locator('.language-picker select').selectOption('en');
+ await page.locator('.language-picker [role=combobox]').click();
+ await page.locator('[role=option][data-value="en"]').click();
  await page.locator('.menu-toggle').click();
  assert.equal(await page.locator('#mobile-navigation').isVisible(),true);
  await page.locator('#mobile-navigation a[href="#videos"]').click();
@@ -48,7 +50,8 @@ try {
  assert.match(await booking.locator('[role=status]').textContent(),/required/);
  await booking.locator('[name=name]').fill('Test Visitor');
  await booking.locator('[name=phone]').fill('abc');
- await booking.locator('[name=topic]').selectOption({index:1});
+ await booking.getByRole('combobox').click();
+ await page.getByRole('option').nth(1).click();
  await booking.getByRole('button',{name:'Send message'}).click();
  assert.match(await booking.locator('[role=status]').textContent(),/required/);
  await booking.locator('[name=phone]').fill('+93 700 123 456');

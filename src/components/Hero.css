@@ -1,24 +1,17 @@
 /* Fixed left/center/right composition from the reference, with native text direction. */
-.reference-hero{position:relative;isolation:isolate;direction:ltr;aspect-ratio:1.4;max-width:1320px;width:100%;margin:40px auto 0;overflow:hidden;border-radius:28px;background:linear-gradient(180deg,#4e0e0399,transparent 75%),radial-gradient(ellipse at 13% 84%,#ffd72e 0%,#ffb500 17%,#e87400 39%,#bd3b00 65%,#7c2008 100%);color:#fff9e9}
+.reference-hero{position:relative;isolation:isolate;direction:ltr;aspect-ratio:1.4;max-height:calc(100dvh - 120px);max-width:1320px;width:100%;margin:40px auto 0;overflow:hidden;border-radius:28px;background:linear-gradient(180deg,#4e0e0399,transparent 75%),radial-gradient(ellipse at 13% 84%,#ffd72e 0%,#ffb500 17%,#e87400 39%,#bd3b00 65%,#7c2008 100%);color:#fff9e9}
 .reference-white-panel{position:absolute;z-index:0;top:2%;right:1.4%;bottom:2%;width:49.2%;border-radius:20px;background:#fffdfb}
 .reference-orbit{position:absolute;z-index:-1;aspect-ratio:1;border-radius:50%;pointer-events:none}
 .reference-orbit-top{width:64%;top:-63%;left:22%;border:90px solid #ef900d20;background:#ffb42910}
 .reference-orbit-bottom{width:62%;left:20%;bottom:-19%;background:#ffce282b;border:70px solid #ffd72e18}
 .reference-copy{position:absolute;z-index:4;left:5%;top:19.5%;width:30%;text-align:left}
 .reference-badge{display:inline-flex;align-items:center;min-height:28px;padding:4px 12px;border:1px solid #ffe2a589;border-radius:30px;font-size:clamp(.65rem,1vw,.85rem);line-height:1.7;color:#fff5db}
-.reference-title{font-size:clamp(3.2rem,5.8vw,5.1rem);font-weight:400;line-height:1.2;letter-spacing:-.055em;margin:20px 0 30px}
+.reference-title{font-size:clamp(3.2rem,5.8vw,5.1rem);font-weight:400;line-height:1.2;letter-spacing:-.055em;margin:14px 0 22px}
 .reference-title span{display:block;white-space:nowrap}
-.reference-cta{display:inline-flex;align-items:center;justify-content:center;min-height:76px;max-width:100%;padding:15px 30px;background:#fffdf2;color:#29241e;border-radius:60px;font-size:clamp(.8rem,1.12vw,1rem);font-weight:600;box-shadow:0 0 45px 12px #ffe47582;line-height:1.8}
+.reference-cta{display:inline-flex;align-items:center;justify-content:center;min-height:76px;max-width:100%;padding:13px 26px;background:#fffdf2;color:#29241e;border-radius:60px;font-size:clamp(.8rem,1.12vw,1rem);font-weight:600;box-shadow:0 0 45px 12px #ffe47582;line-height:1.8}
 .reference-cta:hover{background:#fff2d5;transform:translateY(-2px)}
-.reference-portrait{position:absolute;z-index:2;bottom:-49%;left:4%;width:90%;height:150%;pointer-events:none}
+.reference-portrait{position:absolute;z-index:2;bottom:-30%;left:6%;width:85%;height:130%;pointer-events:none}
 .reference-portrait>img{width:100%;height:100%;max-width:none;object-fit:contain;object-position:center bottom}
-.reference-mini-cards{position:absolute;z-index:5;left:5%;bottom:6.6%;width:23%;display:flex;gap:8px}
-.reference-mini-card{display:flex;flex-direction:column;justify-content:space-between;width:50%;min-width:0;min-height:120px;padding:13px 11px;background:#fffdf5;border:1px solid #ffffffa8;border-radius:10px;color:#2d251d;box-shadow:0 4px 16px #612b0714}
-.reference-mini-card>span{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:clamp(.55rem,.8vw,.72rem);line-height:1.8}
-.reference-mini-card i{height:8px;width:16px;background:#ffdc64;border-radius:9px;flex-shrink:0}
-.reference-mini-card strong{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:clamp(.8rem,1.3vw,1.2rem);font-weight:500;line-height:1.6}
-.reference-mini-card strong>.icon{width:20px;height:20px;stroke-width:1.5}
-.reference-mini-card:hover{background:#fff0cb;transform:translateY(-3px)}
 .reference-socials{position:absolute;z-index:6;bottom:6.6%;left:44.5%;display:flex;gap:5px}
 .reference-socials>a{height:48px;width:48px;display:grid;place-items:center;border:1px solid #fff5d8a6;border-radius:50%;background:#29241e26;color:#fff8e7;backdrop-filter:blur(3px)}
 .reference-socials>a:hover{background:#fff4db;color:#4a2c1b}
@@ -27,14 +20,17 @@
 .reference-small-badge{display:inline-block;border:1px solid #a49789;border-radius:25px;font-size:.63rem;padding:2px 7px;line-height:1.7;margin-bottom:18px}
 .reference-welcome h2{font-size:clamp(1.15rem,2.05vw,1.8rem);font-weight:500;line-height:1.65;letter-spacing:-.035em}
 .reference-welcome>p{font-size:clamp(.67rem,.95vw,.85rem);line-height:1.9;margin-top:24px;max-width:190px;color:#665449}
-.reference-note{background:#f7f5f3;border-radius:8px;box-shadow:0 6px 22px #37201807;padding:22px 18px 26px;margin-inline:-12px -8px;min-height:clamp(150px,20.5vw,270px);display:flex;flex-direction:column;justify-content:space-between}
+.reference-note{background:#f7f5f3;border-radius:8px;box-shadow:0 6px 22px #37201807;padding:22px 18px 26px;margin-inline:-12px -8px;min-height:clamp(120px,16vw,210px);display:flex;flex-direction:column;justify-content:space-between}
 .reference-note-person{display:flex;align-items:center;gap:12px;direction:ltr}
+.note-whatsapp{margin-inline-start:auto;flex-shrink:0;width:38px;height:38px;display:grid;place-items:center;border-radius:0;background:transparent;color:#25d366;box-shadow:none;animation:none;transition:none;transform:none}
+.note-whatsapp .icon{width:20px;height:20px;stroke:none}
+.note-whatsapp:hover{background:transparent;color:#20ba5a;box-shadow:none;animation:none;transform:none}
 .reference-note-person>img{width:52px;height:64px;object-fit:cover;object-position:center 18%;border-radius:3px;flex-shrink:0}
 .reference-note-person>div{direction:inherit;text-align:start}
 .reference-note-person strong{display:block;font-size:.67rem;font-weight:600;line-height:1.8}
 .reference-note-person span{display:block;color:#78675b;font-size:.57rem;line-height:1.8}
 .reference-note>p{font-size:clamp(1rem,1.8vw,1.5rem);font-weight:500;line-height:1.8;letter-spacing:-.025em;margin-top:28px}
-[dir=ltr] .reference-title{font-size:clamp(3.4rem,6.2vw,5.7rem);line-height:1.04;letter-spacing:-.065em;margin-top:25px;margin-bottom:40px}
+[dir=ltr] .reference-title{font-size:clamp(3.4rem,6.2vw,5.7rem);line-height:1.04;letter-spacing:-.065em;margin-top:18px;margin-bottom:28px}
 [dir=ltr] .reference-welcome h2{line-height:1.13;font-size:clamp(1.2rem,2.1vw,1.9rem);font-weight:600}
 [dir=ltr] .reference-note>p{line-height:1.2;letter-spacing:-.045em}
 @media(min-width:701px){
@@ -51,8 +47,7 @@
  .reference-hero{margin-top:32px;border-radius:22px}.reference-copy{top:18%;left:5%;width:31%}.reference-title{font-size:clamp(2.6rem,6vw,4rem);margin-top:16px;margin-bottom:22px;line-height:1.25}
  .reference-cta{min-height:54px;padding:12px 18px;font-size:.78rem}.reference-badge{font-size:.6rem;min-height:24px;padding:3px 9px}
  .reference-aside{right:5%;width:21%;top:25%;bottom:5%}.reference-welcome h2{font-size:1.2rem;line-height:1.55}.reference-welcome>p{font-size:.64rem;margin-top:13px}.reference-small-badge{font-size:.55rem;margin-bottom:12px}
- .reference-note{padding:14px 11px 17px;margin-inline:-5px}.reference-note-person{gap:8px}.reference-note-person>img{width:33px;height:42px}.reference-note-person strong{font-size:.52rem}.reference-note-person span{font-size:.48rem}.reference-note>p{font-size:1.05rem;margin-top:17px;line-height:1.6}
- .reference-mini-cards{width:27%;bottom:5%}.reference-mini-card{min-height:85px;padding:9px 8px}.reference-mini-card strong{font-size:.79rem}.reference-mini-card strong>.icon{height:15px;width:15px}.reference-mini-card>span{font-size:.55rem}
+ .reference-note{padding:14px 11px 17px;margin-inline:-5px}.reference-note-person{gap:8px}.reference-note-person>img{width:33px;height:42px}.reference-note-person strong{font-size:.52rem}.reference-note-person span{font-size:.48rem}.note-whatsapp{width:30px;height:30px}.note-whatsapp .icon{width:16px;height:16px}.reference-note>p{font-size:1.05rem;margin-top:17px;line-height:1.6}
  .reference-socials{left:43%;bottom:5%;gap:3px}.reference-socials>a{width:48px;height:48px}
  [dir=ltr] .reference-title{font-size:clamp(2.8rem,6.2vw,4.2rem);margin-top:16px;margin-bottom:28px}[dir=ltr] .reference-welcome h2{font-size:1.3rem}
 }
@@ -61,7 +56,6 @@
  .reference-copy{position:relative;top:auto;left:auto;width:100%;z-index:4;text-align:start}.reference-badge{font-size:.7rem;min-height:28px;padding:4px 12px}
  .reference-title{font-size:clamp(2.8rem,11vw,4.1rem);line-height:1.5;letter-spacing:-.04em;margin-block:17px 23px}.reference-title span{display:inline;white-space:normal}.reference-cta{width:100%;min-height:54px;font-size:.88rem;padding:13px 20px}
  .reference-portrait{position:relative;left:auto;bottom:auto;height:440px;width:calc(100% + 44px);margin:10px -22px -10px;flex-shrink:0}.reference-portrait>img{height:100%;width:100%;object-fit:contain;object-position:center bottom}
- .reference-mini-cards{position:relative;left:auto;bottom:auto;width:100%;margin-top:-60px;gap:10px}.reference-mini-card{min-height:95px;padding:12px 14px;border-radius:10px}.reference-mini-card>span{font-size:.73rem}.reference-mini-card strong{font-size:1rem}.reference-mini-card strong>.icon{width:20px;height:20px}
  .reference-socials{position:relative;left:auto;bottom:auto;justify-content:center;margin-block:18px;gap:9px}
  .reference-aside{position:relative;top:auto;bottom:auto;right:auto;width:100%;display:block;padding:24px 21px;background:#fffdfb;border-radius:14px}.reference-small-badge{font-size:.65rem;margin-bottom:14px}.reference-welcome h2{font-size:1.5rem;line-height:1.7}.reference-welcome>p{font-size:.8rem;max-width:none;margin-top:15px;line-height:2}
  .reference-note{margin:24px 0 0;padding:16px;border-radius:8px}.reference-note-person>img{width:43px;height:53px}.reference-note-person strong{font-size:.76rem}.reference-note-person span{font-size:.64rem}.reference-note>p{font-size:1.15rem;line-height:1.8;margin-top:17px}

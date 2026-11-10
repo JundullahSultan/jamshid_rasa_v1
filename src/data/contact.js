@@ -10,4 +10,4 @@ export const socials = [
 export const alternateYouTube = 'https://www.youtube.com/@drjamshidrasa1';
 export const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('House No. 10, Ministry of Commerce Street, Karte-e-Seh, Darulaman Road, Kabul, Afghanistan');
 // E.164 digits only, e.g. country code and subscriber number. No invented number.
-export const whatsappNumber = null;
+export const whatsappNumber = '93708176837';

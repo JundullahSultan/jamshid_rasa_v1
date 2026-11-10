@@ -1,3 +1,4 @@
+import CustomSelect from './CustomSelect';
 import { useEffect, useState } from 'react';
 import { languages } from '../data/i18n';
 import Icon from './Icon';
@@ -8,9 +9,9 @@ export default function Header({t, language, setLanguage, contactPage}) {
  return <header className={`site-header ${contactPage?'':'reference-header'}`}>
   <div className="header-inner">
    <a href="#home" className="brand" onClick={()=>setOpen(false)} aria-label={`${t.name} ${t.englishName}`}><span className="brand-symbol"><Icon name="book"/></span><span><strong>{t.name}</strong><small dir="ltr">{t.englishName}</small></span></a>
-   <nav className="desktop-nav" aria-label={t.lang==='en'?'Main navigation':t.openMenu}>{t.nav.map((label,i)=><a key={label} href={targets[i]} aria-current={contactPage&&i===4?'page':undefined}>{label}</a>)}</nav>
-   <div className="header-actions"><div className="language-picker"><Icon name="globe"/><select aria-label="Language / ژبه / زبان" value={language} onChange={e=>setLanguage(e.target.value)}>{Object.entries(languages).map(([code,label])=><option key={code} value={code}>{label}</option>)}</select></div><a className="button button-dark header-book" href="#consultation">{t.book}<Icon name="diagonal" className="directional"/></a><button className="menu-toggle" aria-label={open?t.closeMenu:t.openMenu} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setOpen(!open)}><Icon name={open?'close':'menu'}/></button></div>
+   <nav className="desktop-nav" aria-label={t.lang==='en'?'Main navigation':t.openMenu}>{t.nav.map((label,i)=><a key={label} href={targets[i]} aria-current={contactPage&&i===4?'page':undefined}>{label}</a>)}<a href="#/seminars">{t.lang==='en'?'Seminars':t.lang==='ps'?'سیمینارونه':'سمینارها'}</a></nav>
+   <div className="header-actions"><div className="language-picker"><Icon name="globe"/><CustomSelect aria-label="Language / ژبه / زبان" value={language} onChange={e=>setLanguage(e.target.value)}>{Object.entries(languages).map(([code,label])=><option key={code} value={code}>{label}</option>)}</CustomSelect></div><a className="button button-dark header-book" href="#consultation">{t.book}<Icon name="diagonal" className="directional"/></a><button className="menu-toggle" aria-label={open?t.closeMenu:t.openMenu} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setOpen(!open)}><Icon name={open?'close':'menu'}/></button></div>
   </div>
-  {open&&<nav id="mobile-navigation" className="mobile-nav" aria-label={t.openMenu}>{t.nav.map((label,i)=><a key={label} href={targets[i]} onClick={()=>setOpen(false)}><span className="nav-index" dir="ltr">0{i+1}</span>{label}<Icon name="diagonal" className="directional"/></a>)}<p>{t.tagline}</p><a className="button button-dark" href="#consultation" onClick={()=>setOpen(false)}>{t.bookLong}</a></nav>}
+  {open&&<nav id="mobile-navigation" className="mobile-nav" aria-label={t.openMenu}>{t.nav.map((label,i)=><a key={label} href={targets[i]} onClick={()=>setOpen(false)}><span className="nav-index" dir="ltr">0{i+1}</span>{label}<Icon name="diagonal" className="directional"/></a>)}<a href="#/seminars" onClick={()=>setOpen(false)}>{t.lang==='en'?'Reserve a seminar seat':t.lang==='ps'?'د سیمینار څوکۍ رزرو':'رزرو صندلی سمینار'}</a><a href="#/admin" onClick={()=>setOpen(false)}>Admin demo</a><p>{t.tagline}</p><a className="button button-dark" href="#consultation" onClick={()=>setOpen(false)}>{t.bookLong}</a></nav>}
  </header>;
 }

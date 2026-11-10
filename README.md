@@ -47,3 +47,17 @@ The contact reference is expressed as an oversized rust heading, line-based form
 The map opens an address search, not a verified location pin. The site has no backend and no confirmed booking schedule. Social addresses need verification. Lighthouse scoring depends on deployed conditions; browser layout checks do not constitute a measured Lighthouse score.
 
 Hosting configuration is in `.openai/hosting.json`; production assets are in `dist/` after build.
+
+## Seminar and admin demo
+
+Open `#/seminars` for attendee registration and simulated HesabPay/Visa checkout. `#/admin` opens directly to seminar registrations, with confirmation/cancellation, search, filters, attendee details, and payment outcomes. `#/admin/students` counts unique confirmed attendees. `#/admin/videos` creates series and uploads local videos to IndexedDB with a playback preview.
+
+This is a browser-local prototype with English, Pashto, and Dari interface translations with an illustrative seminar, date, price, and capacity. It has no authentication, shared backend, real payments, notifications, or public video publishing. Do not enter real personal or financial information. Clearing browser storage removes demo data. A production release needs protected admin access, a database, hosted video storage, and verified payment integrations.
+
+With the dev server running, set `PREVIEW_URL` to its URL and run `npm run test:portal`. This verifies declined/successful payments, admin confirmation, student counts, persistent video storage, and responsive layouts. The video test uses a synthetic file to verify storage and player wiring, not codec decoding.
+
+The portal seeds 24 fictional registrations (10 waiting, 10 confirmed, 2 failed payments, and 2 cancellations), 10 series, and 20 sample lesson records. Confirmed registrations supply the 10 student records. The one-time migration preserves existing records and later edits; sample lessons are metadata only and are labeled separately from playable uploads.
+
+The portal header includes the shared language selector. It changes interface labels and reading direction immediately, persists with the website’s `rasa-language` preference, and applies to cards, dialogs, forms, and notices. Names, contact details, and user-created series or lesson content keep their original text.
+
+Dropdowns throughout the site use the shared `CustomSelect` component, with cream panels, warm hover states, rust selection accents, keyboard navigation, typeahead, and viewport-aware positioning. A hidden native select preserves form submission, validation, and reset behavior. Run `npm run test:menus` with `PREVIEW_URL` set to the running app to verify menus in all three languages.
