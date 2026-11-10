@@ -56,10 +56,10 @@ try {
  await page.getByRole('button',{name:'Confirm seat'}).click();
  assert.match(await page.getByRole('dialog').textContent(),/Confirmed/);
  await page.getByRole('button',{name:'Close attendee details'}).click();
- await page.getByRole('link',{name:'Students',exact:false}).click();
+ await page.getByRole('navigation',{name:'Admin navigation'}).getByRole('link',{name:'Students',exact:false}).click();
  await page.locator('.portal-stat>strong').waitFor(); assert.equal(await page.locator('.portal-stat>strong').textContent(),'11');
  await page.reload(); await page.locator('.portal-students article').first().waitFor(); assert.equal(await page.locator('.portal-students article').count(),11);
- await page.getByRole('link',{name:'Video series',exact:false}).click();
+ await page.getByRole('navigation',{name:'Admin navigation'}).getByRole('link',{name:'Video series',exact:false}).click();
  await page.getByLabel('Series name').fill('New test series'); await page.getByLabel('Description',{exact:true}).fill('Learn to focus');
  await page.getByRole('button',{name:'Create series +'}).click();
  await page.getByLabel('Lesson title').fill('First lesson'); await page.getByRole('combobox',{name:'Series',exact:true}).click(); await page.getByRole('option',{name:'New test series',exact:true}).click();
